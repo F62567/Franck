@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=premices, initial-scale=1.0">
+    <title>franck</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title> nkulu franck</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f9f9f9; }
+    header, footer { text-align: center; padding: 20px; background: #222; color: white; }
+    .produit { border: 1px solid #ccc; padding: 10px; margin: 10px; text-align: center; background: white; display: inline-block; }
+    img { max-width: 200px; height: auto; border-radius: 8px; }
+    .prix { font-weight: bold; color: green; }
+    button { background: #28a745; color: white; border: none; padding: 10px; cursor: pointer; border-radius: 5px; }
+    #panier { background: #fff; padding: 20px; margin: 20px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Boutique nkulu nvula franck</h1>
+    <p>Mode & élégance à petit prix</p>
+  </header>
+
+  <!-- Produits -->
+  <section class="produit">
+    <img src="images/robe_elegante.jpg" alt="Robe élégante">
+    <h2>Robe élégante</h2>
+    <p class="prix">50 000 FC</p>
+    <button onclick="ajouterAuPanier('Robe élégante', 50000)">Ajouter au panier</button>
+  </section>
+
+  <section class="produit">
+    <img src="images/souliers_cuir.jpg" alt="Souliers en cuir">
+    <h2>Souliers en cuir</h2>
+    <p class="prix">80 000 FC</p>
+    <button onclick="ajouterAuPanier('Souliers en cuir', 80000)">Ajouter au panier</button>
+  </section>
+
+  <section class="produit">
+    <img src="images/tshirt_bass.jpg" alt="T-shirt Bas$">
+    <h2>T-shirt Bas$</h2>
+    <p class="prix">25 000 FC</p>
+    <button onclick="ajouterAuPanier('T-shirt Bas$', 25000)">Ajouter au panier</button>
+  </section>
+
+  <!-- Panier -->
+  <div id="panier">
+    <h2>🛒 Panier</h2>
+    <ul id="liste-panier"></ul>
+    <p>Total : <span id="total">0</span> FC</p>
+    <button onclick="payer()">Procéder au paiement</button>
+  </div>
+
+  <footer>
+    <p>Paiement disponible via M-Pesa / Airtel Money</p>
+    <p>Numéro : 0976609963</p>
+  </footer>
+
+  <script>
+    let panier = [];
+    let total = 0;
+
+    function ajouterAuPanier(nom, prix) {
+      panier.push({nom, prix});
+      total += prix;
+      afficherPanier();
+    }
+
+    function afficherPanier() {
+      const liste = document.getElementById('liste-panier');
+      liste.innerHTML = '';
+      panier.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item.nom + ' - ' + item.prix + ' FC';
+        liste.appendChild(li);
+      });
+      document.getElementById('total').textContent = total;
+    }
+
+    function payer() {
+      alert("Pour payer, envoyez " + total + " FC au numéro 0976609963 via M-Pesa ou Airtel Money.");
+    }
+  </script>
+</body>
+</html>
+</body>
+</html>
